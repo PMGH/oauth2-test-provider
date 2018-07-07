@@ -59,15 +59,15 @@ For example:
 
 
 ## Resources
-###OAuth 2
+**OAuth 2**
 - OAuth2 Overview:  https://www.youtube.com/watch?v=CPbvxxslDTU
 
-###Devise
+**Devise**
 - Devise:  https://github.com/plataformatec/devise
 
-###Doorkeeper
+**Doorkeeper**
 - Doorkeeper Authorization Flow:  https://github.com/doorkeeper-gem/doorkeeper/wiki/Authorization-Code-Flow
 
-###JWTs
+**JWTs**
 - Doorkeeper-JWT:  https://github.com/chriswarren/doorkeeper-jwt
 - JWTs:  https://jwt.io/
