@@ -144,6 +144,10 @@ Doorkeeper.configure do
       user = User.find(opts[:resource_owner_id])
 
       {
+        iss: Rails.application.class.parent.to_s.underscore,
+        iat: Time.now.utc.to_i,
+        jti: SecureRandom.uuid,
+
         user: {
           id: user.id,
           email: user.email
