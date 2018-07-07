@@ -1,24 +1,56 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
 * Ruby version
+2.5.1
 
-* System dependencies
+* Devise version
+4.4.3
 
-* Configuration
+* Doorkeeper version
+4.3.2
 
-* Database creation
+* Doorkeeper-JWT version
+0.2.1
 
-* Database initialization
 
-* How to run the test suite
+## Getting up and running
 
-* Services (job queues, cache servers, search engines, etc.)
+This application is the OAuth Provider/Server application (on port 3000) and should be run alongside the Consumer/Client application (on port 3001).
 
-* Deployment instructions
+The reason they are to be run on specific ports is due to the omniauth configuration on the Consumer application.
 
-* ...
+## OAuth Provider
+
+The Provider application authenticates the user using the devise gem. It also carries out the authorization of Consumer applications by providing the user with an authorization_code that is then exchanged for an access_token (a JWT).
+
+Once running, Consumer applications can be added on the http://localhost:3000/oauth/applications page.
+
+```
+git clone git@github.com:PMGH/oauth2-test-provider.git
+```
+
+- cd into repo and run: `PORT=3000 rails server`
+
+## OAuth Consumer
+
+The OAuth Consumer application is the application which the user is seeking access to.
+
+```
+git clone git@github.com:PMGH/oauth2-test-consumer.git
+```
+
+- cd into repo and run: `PORT=3001 rails server`
+
+
+
+## WIP
+- When trying to access the Consumer application (localhost:3001) for the first time the user should be redirected to the sign in page of the Provider application (localhost:3000/users/sign_in)
+- Once signed in they should be presented with the Authorization request (localhost:3000/oauth/authorize?). The url should contain the following query params:
+
+client_id - the Consumer application id found on the http://localhost:3000/oauth/applications/:id page
+redirect_uri - the Consumer application callback uri found on the http://localhost:3000/oauth/applications/:id page e.g. http://localhost:3001/auth/doorkeeper/callback
+response_code=code  - expects an authorization code to be returned
+
+For example:
+
+`http://localhost:3000/oauth/authorize?client_id=YOUR_CLIENT_ID&redirect_uri=urn:ietf:wg:oauth:2.0:oob&response_type=code`
