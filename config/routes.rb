@@ -4,5 +4,5 @@ Rails.application.routes.draw do
 
   get '/me' => 'application#me'
 
-  root to: '/oauth/applications'
+  root to: 'home#index'
 end
