@@ -43,6 +43,7 @@ gem "devise"
 gem "doorkeeper"
 
 # use doorkeeper jwt
+# https://github.com/jwt/ruby-jwt
 gem "doorkeeper-jwt"
 
 group :development, :test do
