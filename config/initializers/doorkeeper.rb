@@ -150,7 +150,8 @@ Doorkeeper.configure do
 
         user: {
           id: user.id,
-          email: user.email
+          email: user.email,
+          name: user.name
         }
       }
     end
