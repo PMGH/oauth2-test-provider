@@ -64,6 +64,7 @@ For example:
 
 **Devise**
 - Devise:  https://github.com/plataformatec/devise
+- Cheat Sheet:  https://devhints.io/devise
 
 **Doorkeeper**
 - Doorkeeper Authorization Flow:  https://github.com/doorkeeper-gem/doorkeeper/wiki/Authorization-Code-Flow
