@@ -19,7 +19,13 @@ This is a dummy OAuth application.
 
 This application is the OAuth Provider/Server application (on port 3000) and should be run alongside the Consumer/Client application (on port 3001).
 
-The reason they are to be run on specific ports is due to the omniauth configuration on the Consumer application.
+The reason they are to be run on specific ports is due to the omniauth configuration on the Consumer application in doorkeeper.rb:
+```rubyonrails
+option :client_options, {
+  site:          'http://localhost:3000',
+  authorize_url: 'http://localhost:3000/oauth/authorize'
+}
+```
 
 ## OAuth Provider
 
