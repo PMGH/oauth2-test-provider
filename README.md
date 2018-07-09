@@ -13,19 +13,22 @@
 0.2.1
 
 ## About
-This is a dummy OAuth application.
+This is a dummy OAuth application (Provider).
+
 
 ## Getting up and running
 
 This application is the OAuth Provider/Server application (on port 3000) and should be run alongside the Consumer/Client application (on port 3001).
 
 The reason they are to be run on specific ports is due to the omniauth configuration on the Consumer application in doorkeeper.rb:
-```rubyonrails
+
+```
 option :client_options, {
   site:          'http://localhost:3000',
   authorize_url: 'http://localhost:3000/oauth/authorize'
 }
 ```
+
 
 ## OAuth Provider
 
@@ -39,6 +42,7 @@ git clone git@github.com:PMGH/oauth2-test-provider.git
 
 - cd into repo and run: `PORT=3000 rails server`
 
+
 ## OAuth Consumer
 
 The OAuth Consumer application is the app which the user is seeking access to.
@@ -48,7 +52,6 @@ git clone git@github.com:PMGH/oauth2-test-consumer.git
 ```
 
 - cd into repo and run: `PORT=3001 rails server`
-
 
 
 ## Workflow (HTML)
@@ -67,6 +70,7 @@ For example:
 - Redirect to the Consumer app that they initially tried to access.
 - The Consumer app adds an access_token cookie that allows the user access for as long as the token is valid.
 - Token expiry is determined by the Provider app (the issuer) in the doorkeeper.rb file.
+
 
 ## API Journey (JSON)
 
@@ -94,6 +98,7 @@ Client Authentication:  Send client credentials in body
 
 You can now include the returned access_token in subsequent requests to the Consumer application.\n
 This can be done by setting the Authorization Type to Bearer Token for those requests and using 'Bearer [access_token]'.
+
 
 ## Resources
 **OAuth 2**
