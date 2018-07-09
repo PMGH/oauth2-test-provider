@@ -98,14 +98,25 @@ This can be done by setting the Authorization Type to Bearer Token for those req
 ## Resources
 **OAuth 2**
 - OAuth2 Overview:  https://www.youtube.com/watch?v=CPbvxxslDTU
+- Difference between OAuth1 and OAuth2:  https://stackoverflow.com/questions/4113934/how-is-oauth-2-different-from-oauth-1
+- Introduction to OAuth2:  https://hueniverse.com/introducing-oauth-2-0-b5681da60ce2
 
 **Devise**
 - Devise:  https://github.com/plataformatec/devise
 - Cheat Sheet:  https://devhints.io/devise
 
 **Doorkeeper**
+- Doorkeeper:  https://github.com/doorkeeper-gem/doorkeeper
 - Doorkeeper Authorization Flow:  https://github.com/doorkeeper-gem/doorkeeper/wiki/Authorization-Code-Flow
 
 **JWTs**
 - Doorkeeper-JWT:  https://github.com/chriswarren/doorkeeper-jwt
 - JWTs:  https://jwt.io/
+- Understanding JWTs:  https://medium.com/vandium-software/5-easy-steps-to-understanding-json-web-tokens-jwt-1164c0adfcec
+
+**CSRF**
+- API:  https://stackoverflow.com/questions/9362910/rails-warning-cant-verify-csrf-token-authenticity-for-json-devise-requests
+\n\n\n
+**Tutorials**
+- OAuth2 on Rails (the Provider application):  https://dev.mikamai.com/2015/02/11/oauth2-on-rails/
+- OAuth2 on Rails (the Consumer application):  https://dev.mikamai.com/2015/03/02/oauth2-on-rails-the-client-application/
