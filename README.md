@@ -61,7 +61,8 @@ git clone git@github.com:PMGH/oauth2-test-consumer.git
 - The Consumer app contains an omniauth strategy (named 'doorkeeper') that redirects the user to the Provider application.
 - The Omniauth strategy must be configured to use the Provider application Client_ID and Client_Secret.
 - Verifies the access_token cookie on each request (HTML).
-- Verifies the bearer token on each request (JSON API).
+- Verifies the Authorization bearer_token on each request (JSON API).
+- If the user doesn't have a valid access_token or bearer_token they are redirected to the Provider app sign_in page.
 
 
 ## Workflow (HTML)
@@ -82,6 +83,7 @@ For example:
 - User is redirected to the Consumer app that they initially tried to access.
 - The Consumer app adds an access_token cookie that allows the user access for as long as the token is valid.
 - Token expiry is determined by the Provider app (the issuer) in the doorkeeper.rb file.
+- The user should be able to access the Consumer app.
 
 
 ## API Journey (JSON)
