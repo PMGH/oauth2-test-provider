@@ -8,4 +8,4 @@
 
 User.destroy_all
 
-User.create! email: 'test@test.com', password: 'password', password_confirmation: 'password'
+User.create! email: 'test@test.com', password: 'password', password_confirmation: 'password', name: 'test'
