@@ -41,7 +41,7 @@ git clone git@github.com:PMGH/oauth2-test-provider.git
 
 ## OAuth Consumer
 
-The OAuth Consumer application is the application which the user is seeking access to.
+The OAuth Consumer application is the app which the user is seeking access to.
 
 ```
 git clone git@github.com:PMGH/oauth2-test-consumer.git
@@ -51,28 +51,31 @@ git clone git@github.com:PMGH/oauth2-test-consumer.git
 
 
 
-## WIP
-- When trying to access the Consumer application (localhost:3001) for the first time the user should be redirected to the sign in page of the Provider application (localhost:3000/users/sign_in)
-- Once signed in they should be presented with the Authorization request (localhost:3000/oauth/authorize?). The url should contain the following query params:
+## Workflow (HTML)
+- When trying to access the Consumer app (localhost:3001) for the first time the user should be redirected to the sign in page of the Provider app (localhost:3000/users/sign_in)
+- Once signed in they should be presented with the Authorization request (at localhost:3000/oauth/authorize) with Authorize and Deny buttons. The url should contain the following query params:
 
-- client_id - the Consumer application id found on the http://localhost:3000/oauth/applications/:id page
-- redirect_uri - the Consumer application callback uri found on the http://localhost:3000/oauth/applications/:id page e.g. http://localhost:3001/auth/doorkeeper/callback
+- client_id - the Consumer app id found on the http://localhost:3000/oauth/applications/:id page
+- redirect_uri - the Consumer app callback uri found on the http://localhost:3000/oauth/applications/:id page e.g. http://localhost:3001/auth/doorkeeper/callback
 - response_code=code  - expects an authorization code to be returned
 
 For example:
 
 `http://localhost:3000/oauth/authorize?client_id=YOUR_CLIENT_ID&redirect_uri=urn:ietf:wg:oauth:2.0:oob&response_type=code`
 
+- Once authorized the user will be provided an authentication code that the Provider app exchanges for an access_token.
+- Redirect to the Consumer app that they initially tried to access.
+- The Consumer app adds an access_token cookie that allows the user access for as long as the token is valid.
+- Token expiry is determined by the Provider app (the issuer) in the doorkeeper.rb file.
 
-## API Journey
+## API Journey (JSON)
 
-**Get an access_token**
-This can be done using Postman.
+**Get an access_token** (using Postman)
 - Create a new POST request
 - Navigate to the Authorization tab
 - Set 'Add authorization data to' to Request Headers
 - Select the Get Access Token button
-- Set the necessary Headers and Request Token e.g.
+- Set the necessary Headers e.g.
 
 ```
 Token Name:           Consumer Access Token
@@ -87,7 +90,9 @@ State:
 Client Authentication:  Send client credentials in body
 ```
 
-You can now include the returned access_token in subsequent requests to the Consumer application.
+- Request Token
+
+You can now include the returned access_token in subsequent requests to the Consumer application.\n
 This can be done by setting the Authorization Type to Bearer Token for those requests and using 'Bearer [access_token]'.
 
 ## Resources
