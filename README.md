@@ -64,6 +64,32 @@ For example:
 `http://localhost:3000/oauth/authorize?client_id=YOUR_CLIENT_ID&redirect_uri=urn:ietf:wg:oauth:2.0:oob&response_type=code`
 
 
+## API Journey
+
+**Get an access_token**
+This can be done using Postman.
+- Create a new POST request
+- Navigate to the Authorization tab
+- Set 'Add authorization data to' to Request Headers
+- Select the Get Access Token button
+- Set the necessary Headers and Request Token e.g.
+
+```
+Token Name:           Consumer Access Token
+Grant Type:           Authorization code
+Callback URL:         http://localhost:3001/auth/doorkeeper/callback
+Auth URL:             http://localhost:3000/oauth/authorize
+Access Token URL:     http://localhost:3000/oauth/token
+Client ID:            7284d5786ad5f08a523916b992175210dc4dd1b6995e0028d5d856a31f077523
+Client Secret:        dafa4a696ff4c4b6ddb9a0b6253414e2c05ee2b221e8fb6cbd5ba635abed5e45
+Scope:                
+State:                
+Client Authentication:  Send client credentials in body
+```
+
+You can now include the returned access_token in subsequent requests to the Consumer application.
+This can be done by setting the Authorization Type to Bearer Token for those requests and using 'Bearer [access_token]'.
+
 ## Resources
 **OAuth 2**
 - OAuth2 Overview:  https://www.youtube.com/watch?v=CPbvxxslDTU
