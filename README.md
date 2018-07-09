@@ -116,7 +116,7 @@ This can be done by setting the Authorization Type to Bearer Token for those req
 
 **CSRF**
 - API:  https://stackoverflow.com/questions/9362910/rails-warning-cant-verify-csrf-token-authenticity-for-json-devise-requests
-\n\n\n
-**Tutorials**
+
+**Code-along Tutorials**
 - OAuth2 on Rails (the Provider application):  https://dev.mikamai.com/2015/02/11/oauth2-on-rails/
 - OAuth2 on Rails (the Consumer application):  https://dev.mikamai.com/2015/03/02/oauth2-on-rails-the-client-application/
