@@ -40,7 +40,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem "devise"
 
 # use doorkeeper to authorize
-gem "doorkeeper"
+gem "doorkeeper", '~> 4.4.0'
 
 # use doorkeeper jwt
 # https://github.com/jwt/ruby-jwt
